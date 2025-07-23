@@ -1,32 +1,33 @@
-# 站点名称（必填）
-site_name: 我的技术文档站  
-# 文档源目录（默认 docs，可改）
-docs_dir: docs  
-# 站点描述（SEO 相关）
-site_description: 基于 MkDocs 构建的文档，包含...  
-# 站点关键词（SEO 相关），用英文逗号分隔
-site_keywords: MkDocs, 文档, 自定义  
-# 页面链接格式（可选值：pretty、normal、legacy）
-permalink: pretty  
+site_name: 我的中文文档
+site_description: 基于 MkDocs-Material 的中文技术文档
 
-# 导航栏配置（按目录结构组织）
-nav:  
-  - 快速开始: 'index.md'  
-  - 功能指南:  
-      - 主题自定义: 'guides/theme-custom.md'  
-      - 插件使用: 'guides/plugins.md'  
-  - 关于: 'about.md'  
+theme:
+  name: material
+  language: zh  # 界面语言为中文
+  palette:
+    primary: indigo
+    accent: blue
+  features:
+    - navigation.tabs
+    - navigation.expand
 
-# 配置主题（Material 主题可扩展配置多）
-theme:  
-  name: material  
-  # 主题颜色（可选：primary、accent 配色，如 deep purple、indigo 等）
-  palette:  
-    primary: deep purple  
-    accent: indigo  
-  # 顶部导航栏显示站点名称
-  logo: 'images/logo.png'  
-  # 仓库链接（右上角显示 GitHub 图标，点击跳转）
-  repo_url: https://github.com/你的用户名/仓库名  
-  # 设为 true 会在导航栏显示编辑此页按钮，点击跳转仓库编辑
-  edit_uri: edit/master/docs/  
+plugins:
+  - search:
+      lang: zh  # 搜索支持中文
+      separator: '[\s\-\.]+'
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  font:
+    text: Inter
+    code: Roboto Mono
